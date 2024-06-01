@@ -82,9 +82,9 @@ fi
 
 
 cd /var/dobie/data
-sudo wget https://raw.githubusercontent.com/eunnseok/dobie-deploy/main/data/user.json
-sudo wget https://raw.githubusercontent.com/eunnseok/dobie-deploy/main/data/project.json
-sudo wget https://raw.githubusercontent.com/eunnseok/dobie-deploy/main/data/refreshToken.json
+sudo wget https://raw.githubusercontent.com/hyeseon97/Dobie/main/setting/user.json
+sudo wget https://raw.githubusercontent.com/hyeseon97/Dobie/main/setting/project.json
+sudo wget https://raw.githubusercontent.com/hyeseon97/Dobie/main/setting/refreshToken.json
 cd ~
 
 # 5. Docker network 생성
@@ -205,7 +205,7 @@ fi
 # 8. git 설치 / 소스코드 clone /.env 파일(ip 관련) 생성
 sudo apt install git
 
-git clone https://oauth2:rYWbAwDm9hUVynwz5PHp@lab.ssafy.com/s10-final/S10P31B101.git
+git clone https://github.com/hyeseon97/Dobie.git
 
 export IP_ADDRESS=$(curl -4 ifconfig.me)
 echo "REACT_APP_SERVER=http://$IP_ADDRESS:8010/api" > ./S10P31B101/frontend/.env
@@ -213,12 +213,12 @@ echo "REACT_APP_SERVER=http://$IP_ADDRESS:8010/api" > ./S10P31B101/frontend/.env
 
 
 # 9. docker-compose.yaml 가져온 후 실행
-echo "Dobie의 docker-compose.yaml 을 가져옵니다."
-wget https://raw.githubusercontent.com/eunnseok/dobie-deploy/main/docker-compose.yaml
+echo "Dobie의 docker-compose.yml 을 가져옵니다."
+wget https://raw.githubusercontent.com/hyeseon97/Dobie/main/setting/docker-compose.yml
 
 if [ $? -eq 0 ]; then
     echo "Docker Compose 파일이 성공적으로 저장되었습니다."
-    sudo docker compose -f docker-compose.yaml up -d
+    sudo docker compose -f docker-compose.yml up -d
 else
     echo "Docker Compose 파일을 가져오는 데 문제가 발생했습니다."
 fi
