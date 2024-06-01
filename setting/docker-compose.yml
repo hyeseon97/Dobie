@@ -28,7 +28,7 @@ services:
       - dobie
 
   frontend:
-    build: ./S10P31B101/frontend
+    build: ./Dobie/frontend
     ports:
       - 3333:80
     container_name: dobie-fe
